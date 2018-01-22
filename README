@@ -1,4 +1,6 @@
-Please install scdiff for initialization:
+This project has beed test on Ubuntu 14.04 and Windows 10. This project might or might not work on other platforms.
+
+Please install scdiff (version 1.1.4) for model initialization:
 http://www.cs.cmu.edu/~jund/scdiff/index.html
 
 Please install gprofiler 0.2.3 for GO analysis
@@ -8,6 +10,28 @@ line 360:
 cmd = 'python ~/repos/bio_packages/gprofiler-official-0.2.3/gprofiler.py -o mmusculus "'+ ' '.join(gene_list) + '" >> '+out_file
 
 
+
 See the ipython notebook file for an example of using our CSHMM model to analyze time series single cell RNA-Seq data
+
 The lung_results folder contains .txt files (GO analysis) and png files (gene expression figures) for example data treutlein2014
+
+Note that if windows is used, some unix shell script commands are not executable. The GO analysis tables (.txt files) will be lack of headers. The header is as following:
+"query	significant	p_value	T	Q	Q&T	precision	recall	term_id	domain	group	description	depth	intersection	evcodes"
+
+
+This project needs the following:
+ python 2.7
+ graphviz (Windows: remember to add path variable after installation: C:\Program Files (x86)\Graphviz2.38\bin. Note that this path depends on where you install graphviz)
+ 
+ python packages:
+ cvxpy (Windows: Microsoft Visual C++ 9.0 is required. Get it from http://aka.ms/vcpython27 )
+ progressbar
+ pygraphviz
+ matplotlib
+ networkx
+ numpy
+ pandas
+ argparse
+ sklearn
+
 

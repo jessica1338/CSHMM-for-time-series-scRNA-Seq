@@ -47,5 +47,6 @@ def run_scdiff_init(data_file):
     print pairs2
     out_file.write('\t'.join(pairs)+'\n')
     out_file.write('\t'.join(pairs2)+'\n')
+    out_file.close()
 #run_scdiff_init('treutlein2014')
 #run_scdiff_init('treutlein2014_2copy')

@@ -757,8 +757,20 @@ def plot_cont_marker_gexp(model_ana_temp,remove_path,rescale=True):
         fig=plt.figure('all')
         fig.subplots_adjust(wspace=0.4)
         fig2=plt.figure('4th')
-        fig.savefig(out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0]+'_continuous_all.png', bbox_inches='tight')
-        fig2.savefig(out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0]+'_continuous_4th_nolegend.png', bbox_inches='tight')
+        filename=out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0].replace("|","_")+'_continuous_all.png'
+        #filename=out_folder+'/'+mk_gene+'_continuous_all.png'
+        #filename=filename.replace("|","_")
+        print filename
+        
+        fig.savefig(filename, bbox_inches='tight')
+        
+        
+        filename=out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0].replace("|","_")+'_continuous_4th_nolegend.png'
+        #filename=filename.replace("|","_")
+        
+        #filename=out_folder+'/'+mk_gene+'_continuous_4th_nolegend.png'
+        print filename
+        fig2.savefig(filename, bbox_inches='tight')
         
         plt.figure('4th')
         plt.legend(loc='center left', bbox_to_anchor=(1, 0.5), fontsize = 12)
@@ -767,16 +779,26 @@ def plot_cont_marker_gexp(model_ana_temp,remove_path,rescale=True):
         plt.xlabel("time",fontsize=15)
         plt.ylabel("gene expression",fontsize=15)
         fig3=plt.figure('4th')
-        fig3.savefig(out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0]+'_continuous_4th.png', bbox_inches='tight')
+        #fig3.savefig(out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0]+'_continuous_4th.png', bbox_inches='tight')
+        filename=out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0].replace("|","_")+'_continuous_4th.png'
+        
+        #filename=out_folder+'/'+mk_gene+'_continuous_4th.png'
+        #filename=filename.replace("|","_")
+        print filename
+        fig3.savefig(filename, bbox_inches='tight')
         
         #plt.savefig(out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0]+'_continuous_all.png')
-        plt.figure('all')
+        #plt.figure('all')
         
-        plt.show()
+        #plt.show()
         plt.figure('4th')
         #lt.savefig(out_folder+'/'+mk_gene+"_"+mk_gene_dict[mk_gene][0]+'_continuous_4th.png')
         plt.show()
-        
+        #plt.clf()
+        plt.close('all')
+        #plt2.clf()
+        #plt3.clf()
+        #plt4.clf()
 def analyze_model(model_file,dataset='treutlein2014',append="",model_ana_temp=None):
     model_ana_temp=analyze_gene('model/'+model_file,model_ana_temp=model_ana_temp)
     plot_path_fig('model/'+model_file)
